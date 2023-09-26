@@ -6,12 +6,10 @@ class OrdersController < ApplicationController
 
   # GET /orders
   def index
-    # @orders = Order.all
-    @orders = Customer.find(params[:customer_id]).orders
+    # @orders = Customer.find(params[:customer_id]).orders
     @orders = OrderFilterService.new(
-      @orders, params[:search_filter], params[:filters],
+      params[:search_filter], params[:filters],
       params[:sort_filters]).process
-    # @orders = Order.where('id LIKE ?', "#{params[:searchId]}%") :sort_by, :sort_order
     @pagy, @orders = pagy(@orders, items: params[:limit], page_params: params[:page])
     @pagination = pagy_metadata(@pagy)
     render json: {

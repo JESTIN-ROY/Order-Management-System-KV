@@ -3,8 +3,8 @@
 class OrderFilterService
   attr_accessor :orders, :search_text_filter, :filters, :sort_filters
 
-  def initialize(orders, search_filter, filters, sort_filters)
-    @orders = orders
+  def initialize(search_filter, filters, sort_filters)
+    @orders = Order
     @filters = filters
     @sort_filters = sort_filters
     @search_text_filter = search_filter
@@ -31,14 +31,28 @@ class OrderFilterService
 
     def filter_orders_by_custom_filter
       if filters != nil && filters != []
-        self.orders = self.orders.where(status: filters["status"])
-          .where(customer_id: filters["customer_id"])
-        # .where(product_id: filters["product_id"])
+        filter_by_status
+        filter_by_product
       end
     end
 
+    def filter_by_status
+      if filters["status"] != nil
+        self.orders = self.orders.where(status: filters["status"])
+      end
+    end
+
+    def filter_by_product
+      if filters["product_id"] != nil
+        self.orders = self.orders.joins(:order_items).where(
+          order_items: {
+            product_id: filters["product_id"]
+          })
+      end
+   end
+
     def filter_orders_by_sort_filter
-      if sort_filters != nil && sort_filters != []
+      if sort_filters != nil && sort_filters != [] && filters["sort_by"] != nil
         self.orders = self.orders.order("#{sort_filters["sort_by"]} #{sort_filters["sort_order"]}")
       end
     end
