@@ -8,9 +8,8 @@ ruby "3.0.2"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.8"
 
-# Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
-
+# Use Postgres as the database for Active Record
+gem 'pg', '~> 1.5', '>= 1.5.4'
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
@@ -58,3 +57,11 @@ group :development do
 end
 
 gem "pagy", "~> 6.0"
+gem 'dotenv-rails', '~> 2.8', '>= 2.8.1'
+
+group :test do
+  gem 'simplecov', require: false
+  gem 'factory_bot_rails', '~> 6.2'
+  gem 'rspec-rails', '~> 6.0', '>= 6.0.3'
+
+end

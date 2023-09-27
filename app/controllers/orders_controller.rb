@@ -20,6 +20,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1
   def show
+    Rails.logger.info("Whatever")
     render json: @order
   end
 

@@ -3,6 +3,7 @@
 require_relative "boot"
 
 require "rails/all"
+require "dotenv"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -25,5 +26,6 @@ module KvOms
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+    Dotenv.load
   end
 end
