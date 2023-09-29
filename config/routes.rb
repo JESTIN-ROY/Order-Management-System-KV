@@ -11,7 +11,6 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :orders, only: %i[index]
     end
-
   end
 
   # Defines the root path route ("/")

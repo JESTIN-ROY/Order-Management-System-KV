@@ -16,7 +16,7 @@ puts "Seeding ..."
 end
 
 Customer.all.each do |customer|
-  Order.create!(customer_id: customer.id, status: "Pending")
+  Order.create!(customer_id: customer.id, status: "pending")
 end
 
 10.times do
