@@ -41,7 +41,6 @@ RSpec.describe OrderItem, type: :model do
 
   it "is not valid without a valid quantity" do
     subject.quantity = nil
-    byebug
     expect(subject).to_not be_valid
   end
 

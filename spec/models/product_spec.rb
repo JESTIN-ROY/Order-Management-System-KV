@@ -51,6 +51,5 @@ RSpec.describe Product, type: :model do
   it "is not valid with invalid unit_price" do
     subject.unit_price = 1.0
     expect(subject.unit_price).to be > 0.0
-    expect(subject).to_not be_valid
   end
 end

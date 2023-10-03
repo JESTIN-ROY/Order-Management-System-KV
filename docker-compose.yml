@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  app.db.postgres:
+    image: postgres:14-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - ../data/rag/postgres:/var/lib/postgresql/data
+    env_file: .env
+  # app:
+  #   build: .
+  #   command: bundle exec rails s -p $PORT -b 0.0.0.0
+  #   volumes:
+  #     - .:/myapp
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - app.db.postgres

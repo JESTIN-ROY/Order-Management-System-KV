@@ -1,0 +1,11 @@
+# Directories and files below will not be scanned at all
+exclude_paths:
+  - app/channels/application_cable/channel.rb
+  - app/channels/application_cable/connection.rb
+  - app/controllers/application_controller.rb
+  - app/jobs/application_job.rb
+  - app/mailers/application_mailer.rb
+  - app/models/application_record.rb
+  - config/application.rb
+  - test/channels/application_cable/connection_test.rb
+  - test/test_helper.rb

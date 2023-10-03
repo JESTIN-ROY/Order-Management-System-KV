@@ -4,7 +4,7 @@ require "rails_helper"
 
 RSpec.describe Category, type: :model do
   subject {
-    Category.new(name: Faker::Name.name, parent_category: Faker::Number.within(range: 1..10))
+    Category.create!(name: Faker::Name.name, parent_category: Faker::Number.within(range: 1..10))
   }
 
   it "is valid with valid attributes" do
