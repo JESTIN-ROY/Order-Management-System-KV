@@ -38,5 +38,5 @@ API Requirements: <a href="https://keyvalue.atlassian.net/wiki/spaces/TECH/pages
     
     ```docker-compose up -d```
 9. In VSCode press `ctl+shift+p` and type `dev container`. Select the option `Attach to running container`. Last option in the image below. And continue development in the new vscode window.
-![Attach to running container](image.png)
+
 
